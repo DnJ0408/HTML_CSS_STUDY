@@ -53,7 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const orderItem = order[itemName];
             const orderItemElement = document.createElement('li');
             orderItemElement.innerHTML = `
-                ${itemName} - ₩${orderItem.price.toLocaleString()} x${orderItem.quantity}
+                ${itemName} - ₩${orderItem.price.toLocaleString()}
+                <button class="decrease" data-item="${itemName}">-</button>
+                ${orderItem.quantity}
+                <button class="increase" data-item="${itemName}">+</button>
                 <button class="remove" data-item="${itemName}">삭제</button>
             `;
             orderList.appendChild(orderItemElement);
@@ -64,6 +67,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // 아이템 삭제 로직
     orderList.addEventListener('click', (event) => {
         const itemName = event.target.getAttribute('data-item');
+        
+        //수량 증가
+        if (event.target.classList.contains('increase')) {
+            order[itemName].quantity += 1;
+            totalPrice += order[itemName].price;
+            updateOrderList();
+        }
+
+        //수량 감소
+        if (event.target.classList.contains('decrease')) {
+            if (order[itemName].quantity > 1) {
+                order[itemName].quantity -= 1;
+                totalPrice -= order[itemName].price;
+            } else {
+            totalPrice -= order[itemName].price;
+            delete order[itemName];
+            }
+            updateOrderList();
+        }
+
+        //수량 삭제
         if (event.target.classList.contains('remove')) {
             totalPrice -= order[itemName].price * order[itemName].quantity;
             delete order[itemName];

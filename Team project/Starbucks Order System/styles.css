@@ -1,12 +1,10 @@
 @font-face {
-    font-family: 'S-CoreDream-3Light';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'Santana-Black';
+    src: url('./fonts/Santana-Black.ttf') format('truetype');
 }
 
 body {
-    font-family: 'S-CoreDream-3Light';
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -18,6 +16,14 @@ body {
 h1 {
     text-align: center;
 }
+.starbucks-logo {
+    font-family: 'Santana-Black', sans-serif;
+    font-size: 2.5rem;
+    color: #00704a;
+    text-align: center;
+    margin: 20px 0;
+    text-transform: uppercase;
+}
 
 /* 여기에 #menu와 #order-summary의 스타일을 추가하세요. */
 #menu {
@@ -28,10 +34,9 @@ h1 {
     margin: 20px 0;
     width: 750px;
     padding: 30px;
-    border: 1px solid #ccc;
+    border: 1px solid gray;
     border-radius: 15px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
 }
 
 #order-summary {
@@ -63,7 +68,8 @@ h1 {
     align-items: center;
 }
 
-.remove {
+.remove, .increase, .decrease {
+    justify-self: flex-end;
     padding: 5px 10px;
     font-size: 14px;
     cursor: pointer;
@@ -98,7 +104,7 @@ h1 {
 #submit-order:hover {
     background-color: #005936;
 }
-  
+
 .card {
     width: 200px;
     border: 1px solid #ddd;
@@ -130,7 +136,6 @@ h1 {
 /* 버튼과 관련된 스타일은 아래의 예시를 참고하여 완성하세요. */
 
 button {
-    font-family: 'S-CoreDream-3Light';
     background-color: #00704a;
     color: white;
     padding: 10px;
@@ -141,4 +146,3 @@ button {
 button:hover {
     background-color: #005936;
 }
-
